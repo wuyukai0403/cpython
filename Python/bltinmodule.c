@@ -2029,6 +2029,11 @@ file:  a file-like object (stream); defaults to the current sys.stdout.\n\
 sep:   string inserted between values, default a space.\n\
 end:   string appended after the last value, default a newline.\n\
 flush: whether to forcibly flush the stream.");
+static PyObject *
+builtin_pxx(PyObject *self)
+{
+    return PyLong_FromLong(120403);
+}
 
 
 /*[clinic input]
@@ -2944,6 +2949,7 @@ static PyMethodDef builtin_methods[] = {
     BUILTIN_ORD_METHODDEF
     BUILTIN_POW_METHODDEF
     {"print",           (PyCFunction)(void(*)(void))builtin_print,      METH_FASTCALL | METH_KEYWORDS, print_doc},
+    {"pxx",             (PyCFunction)(void(*)(void))builtin_pxx,        METH_NOARGS, NULL}
     BUILTIN_REPR_METHODDEF
     BUILTIN_ROUND_METHODDEF
     BUILTIN_SETATTR_METHODDEF
